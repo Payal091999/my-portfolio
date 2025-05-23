@@ -1,46 +1,88 @@
-import React from "react";
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
-  return (
-    <div className="p-10 text-center">
-      <h2 className="text-3xl font-bold text-blue-600">Contact Me</h2>
-      <p className="mt-4 text-gray-700">Feel free to reach out using the form below:</p>
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
 
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        className="flex flex-col gap-4 mt-6 items-center"
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const name = form.current.user_name.value.trim();
+    const email = form.current.user_email.value.trim();
+    const message = form.current.message.value.trim();
+
+    // Basic validation
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    setIsSending(true);
+
+    emailjs
+      .sendForm('service_70nvqfd', 'template_wwbo0xa', form.current, 'tcgM5l3eaPs5HHFt2')
+      .then(() => {
+        alert('Message sent!');
+        form.current.reset();
+      })
+      .catch(() => {
+        alert('Failed to send message.');
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
+
+  return (
+    <section className="py-20 px-4 max-w-xl mx-auto">
+      <motion.h2
+        className="text-3xl font-bold text-blue-600 mb-6 text-center"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <input type="hidden" name="form-name" value="contact" />
+        Contact Me
+      </motion.h2>
+
+      <motion.form
+        ref={form}
+        onSubmit={sendEmail}
+        className="flex flex-col gap-4"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <input
           type="text"
-          name="name"
+          name="user_name"
           placeholder="Your Name"
           required
-          className="p-2 border rounded-md w-1/2"
+          className="border p-3 rounded-lg"
         />
         <input
           type="email"
-          name="email"
+          name="user_email"
           placeholder="Your Email"
           required
-          className="p-2 border rounded-md w-1/2"
+          className="border p-3 rounded-lg"
         />
         <textarea
           name="message"
-          placeholder="Your Message"
           rows="5"
+          placeholder="Your Message"
           required
-          className="p-2 border rounded-md w-1/2"
-        ></textarea>
+          className="border p-3 rounded-lg"
+        />
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+          disabled={isSending}
+          className="bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
         >
-          ✉️ Send Message
+          {isSending ? 'Sending...' : 'Send Message'}
         </button>
-      </form>
-    </div>
+      </motion.form>
+    </section>
   );
 }
