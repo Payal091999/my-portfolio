@@ -1,18 +1,25 @@
 import React from 'react';
-import { FaCode, FaHtml5, FaCss3Alt, FaReact } from 'react-icons/fa';
 import { SiDotnet } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import sqlIcon from '../assets/icons/sqlserver.png';
-
+import reaIcon from '../assets/icons/react.png';
+import cshaIcon from '../assets/icons/csharp.png';
+import dotnfIcon from '../assets/icons/dotnetframework.png';
+import htmIcon from '../assets/icons/html.png';
+import cssIcon from '../assets/icons/css3.png';
+import cpIcon from '../assets/icons/cpp.png';
 
 const skills = [
-  { icon: <FaCode className="text-xl text-purple-600" />, label: 'C#' },
   { icon: <SiDotnet className="text-blue-700" />, label: '.NET / Blazor' },
   { icon: <img src={sqlIcon} alt="SQL Server" className="w-6 h-6" />, label: 'SQL Server' },
-  { icon: <FaHtml5 className="text-orange-600" />, label: 'HTML5' },
-  { icon: <FaCss3Alt className="text-blue-500" />, label: 'CSS3' },
-  { icon: <FaReact className="text-cyan-500" />, label: 'React' },
+  { icon: <img src={reaIcon} alt="SQL Server" className="w-6 h-6" />, label: 'React' },
+  { icon: <img src={cshaIcon} alt="SQL Server" className="w-6 h-6" />, label: 'C#' },
+  { icon: <img src={dotnfIcon} alt="SQL Server" className="w-6 h-6" />, label: '.NET Framework' },
+  { icon: <img src={htmIcon} alt="SQL Server" className="w-6 h-6" />, label: 'HTML5' },
+  { icon: <img src={cssIcon} alt="SQL Server" className="w-6 h-6" />, label: 'CSS3' },
+  { icon: <img src={cpIcon} alt="SQL Server" className="w-6 h-6" />, label: 'C++' },
 ];
+
 
 export default function Skills() {
   return (
