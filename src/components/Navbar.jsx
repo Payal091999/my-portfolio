@@ -35,7 +35,7 @@ export default function Navbar() {
     <header className="bg-white dark:bg-slate-900 shadow-md fixed top-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between w-full">
         <div className="text-2xl font-bold text-blue-600 dark:text-cyan-400">
-          abc xyz
+          Payal Bera
         </div>
 
         <div className="flex items-center space-x-4">
