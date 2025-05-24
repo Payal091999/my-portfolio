@@ -1,7 +1,29 @@
+/* index.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.hover-glow:hover {
-  box-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4;
-  transition: box-shadow 0.3s ease-in-out;
+
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  position: relative;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.backdrop-blur-overlay {
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
 }
