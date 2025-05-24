@@ -12,7 +12,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
         className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4"
       >
-        Hi, I’m abc xyz 👋
+        Hi, I’m Payal Bera 👋
       </motion.h1>
 
       <motion.p
@@ -21,7 +21,7 @@ export default function Hero() {
         transition={{ duration: 1.2 }}
         className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8"
       >
-        Full Stack Developer | Blazor • C# • React • SQL
+        Web Developer | Blazor • C# • React • SQL
       </motion.p>
 
       <motion.div
