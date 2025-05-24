@@ -6,46 +6,58 @@ import Skills from '../components/Skills';
 
 export default function About() {
   return (
-    <div className="scroll-snap-container">
-      {/* 🔹 About Me Section */}
-      <section className="scroll-snap-child relative text-center overflow-hidden bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute w-full h-full object-cover z-0"
-        >
-          <source src="/about-bg.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+    <section className="relative min-h-screen text-center overflow-hidden">
 
-        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+      {/* 🔹 Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover z-0"
+      >
+        <source src="https://res.cloudinary.com/doiipvtbw/video/upload/v1748087046/bg-video_mxayo7.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-        <motion.div
-          className="relative z-20 px-6 pt-28 pb-16 max-w-3xl mx-auto text-white"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-4xl font-bold mb-4">👋 About Me</h2>
-          <p className="text-lg leading-relaxed">
-            I’m <strong>Payal Bera</strong>, a web developer focused on building modern apps using Blazor, C#, React, and SQL.
-            <br /><br />
-            Passionate about designing user-friendly interfaces and solving problems with clean code.
-          </p>
-        </motion.div>
-      </section>
+      {/* 🔹 Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
 
-      {/* 🔹 Skills Section */}
-      <section className="scroll-snap-child parallax bg-gray-100 dark:bg-slate-900">
+      {/* 🔹 About Me Content */}
+      <motion.div
+        className="relative z-20 px-6 pt-28 pb-16 max-w-3xl mx-auto text-white"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="text-4xl font-bold mb-4">👋 About Me</h2>
+        <p className="text-lg leading-relaxed">
+          I’m <strong>Payal Bera</strong>, a web developer focused on building modern apps using Blazor, C#, React, and SQL.
+          <br /><br />
+          Passionate about designing user-friendly interfaces and solving problems with clean code. My goal is to build apps that are functional and elegant.
+        </p>
+      </motion.div>
+
+      {/* 🔹 Animated Skills and Timeline Section */}
+      <motion.div
+        className="relative z-20 bg-white dark:bg-slate-900"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <Skills />
-      </section>
+      </motion.div>
 
-      {/* 🔹 Timeline Section */}
-      <section className="scroll-snap-child bg-white dark:bg-slate-900">
+      <motion.div
+        className="relative z-20 bg-white dark:bg-slate-900"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
         <Timeline />
-      </section>
-    </div>
+      </motion.div>
+    </section>
   );
 }
