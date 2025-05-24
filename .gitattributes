@@ -1,0 +1,2 @@
+public/bg-video.mp4 filter=lfs diff=lfs merge=lfs -text
+public/about-bg.mp4 filter=lfs diff=lfs merge=lfs -text
