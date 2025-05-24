@@ -1,38 +1,47 @@
-// src/components/Hero.jsx
+import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 text-white px-4 text-center">
+    <section className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-50 to-purple-100 dark:from-slate-800 dark:to-slate-900 px-4">
+      
       <motion.h1
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-4xl sm:text-5xl font-bold mb-4"
+        className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4"
       >
-        Hi, I’m <span className="text-cyan-400">Payal Bera</span>
+        Hi, I’m abc xyz 👋
       </motion.h1>
 
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="text-lg sm:text-xl text-gray-300 max-w-xl"
+        transition={{ duration: 1.2 }}
+        className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8"
       >
-        Software Developer focused on building responsive full stack apps with Blazor, C#, SQL, Java Script and ASP.NET Core.
+        Full Stack Developer | Blazor • C# • React • SQL
       </motion.p>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="flex flex-wrap gap-4 justify-center"
       >
+        <Link to="/projects">
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-500 transition">
+            🚀 View Projects
+          </button>
+        </Link>
+
         <a
-          href="#projects"
-          className="bg-cyan-500 hover:bg-cyan-400 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-md transition"
+          href="/abcxyz_resume.pdf"
+          download
+          className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold border border-blue-600 hover:bg-blue-50 dark:bg-slate-800 dark:text-white dark:border-white dark:hover:bg-slate-700 transition"
         >
-          View Projects
+          📄 Download Resume
         </a>
       </motion.div>
     </section>

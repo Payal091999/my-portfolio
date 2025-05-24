@@ -1,4 +1,3 @@
-// src/components/ProjectCard.jsx
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -21,14 +20,18 @@ export default function ProjectCard({ title, description, tags, image, github, l
         <p className="text-sm text-gray-600 dark:text-gray-300">{description}</p>
 
         <div className="flex flex-wrap gap-2 mt-2">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="bg-cyan-100 text-cyan-700 dark:bg-cyan-800 dark:text-white px-2 py-1 rounded text-xs font-medium"
-            >
-              #{tag}
-            </span>
-          ))}
+          {Array.isArray(tags) && tags.length > 0 ? (
+            tags.map((tag, index) => (
+              <span
+                key={index}
+                className="bg-cyan-100 text-cyan-700 dark:bg-cyan-800 dark:text-white px-2 py-1 rounded text-xs font-medium"
+              >
+                #{tag}
+              </span>
+            ))
+          ) : (
+            <span className="text-xs italic text-gray-400">No tags</span>
+          )}
         </div>
 
         <div className="flex justify-end gap-4 mt-4">
@@ -47,3 +50,13 @@ export default function ProjectCard({ title, description, tags, image, github, l
     </motion.div>
   );
 }
+
+// ✅ Prevents crash if props are missing
+ProjectCard.defaultProps = {
+  tags: [],
+  title: 'Untitled Project',
+  description: 'No description provided.',
+  image: 'https://via.placeholder.com/400x200?text=Project+Image',
+  github: '',
+  live: ''
+};
