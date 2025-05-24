@@ -4,21 +4,9 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden bg-gradient-to-br from-blue-800 via-indigo-700 to-purple-900">
 
-      {/* 🔹 Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover z-0"
-      >
-        <source src="https://res.cloudinary.com/doiipvtbw/video/upload/v1748087046/bg-video_mxayo7.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* 🔹 Transparent Overlay only (No Blur) */}
+      {/* 🔹 Optional Overlay (Dim Effect) */}
       <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
 
       {/* 🔹 Foreground Content */}
@@ -59,7 +47,7 @@ export default function Hero() {
           </Link>
 
           <a
-            href="/abcxyz_resume.pdf"
+            href="payal-bera-resume.pdf"
             download
             className="bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-full font-semibold border border-blue-600 transition duration-300 shadow-md"
           >
@@ -68,6 +56,5 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
-    
   );
 }

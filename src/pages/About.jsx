@@ -6,21 +6,9 @@ import Skills from '../components/Skills';
 
 export default function About() {
   return (
-    <section className="relative min-h-screen text-center overflow-hidden">
+    <section className="relative min-h-screen text-center overflow-hidden bg-gradient-to-br from-indigo-700 via-purple-800 to-blue-900">
 
-      {/* 🔹 Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover z-0"
-      >
-        <source src="https://res.cloudinary.com/doiipvtbw/video/upload/v1748087046/bg-video_mxayo7.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* 🔹 Overlay */}
+      {/* 🔹 Optional Overlay for Dim Effect */}
       <div className="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
 
       {/* 🔹 About Me Content */}
