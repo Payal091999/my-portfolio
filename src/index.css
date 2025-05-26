@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🔹 Hover glow for skill icons */
-.hover-glow:hover {
-  box-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4;
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-/* 🔹 Text with white outline */
-.outlined-text {
-  color: black;
-  -webkit-text-stroke: 0.8px white;
-  font-weight: 700;
-}
-
-/* 🔹 Scroll-snap layout */
-.scroll-snap-y {
+/* 🔹 Enable smooth scroll and scroll snap */
+html,
+body {
+  scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  height: 100%;
   overflow-y: scroll;
-  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.scroll-snap-child {
+/* 🔹 Snap each section to the top */
+section {
   scroll-snap-align: start;
+}
+
+/* 🔹 Optional scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #06b6d4; /* Tailwind cyan-500 */
+  border-radius: 8px;
 }

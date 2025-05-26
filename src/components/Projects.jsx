@@ -39,4 +39,7 @@ export default function Projects() {
     </section>
   );
 }
+<section id="projects" className="snap-start min-h-screen ...">
+  {/* Projects content */}
+</section>
 
