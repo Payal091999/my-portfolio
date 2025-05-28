@@ -1,50 +1,42 @@
-// src/pages/Projects.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import ProjectCard from '../components/ProjectCard';
 
 export default function Projects() {
-  const projects = [
-    {
-      title: '🧠 SoulSync',
-      description: 'A cross-platform AI-powered app for emotional support and relationship advice.',
-      tags: ['AI', 'Blazor', 'C#', 'MAUI'],
-      github: 'https://github.com/yourusername/soulsync',
-      live: 'https://soulsync.vercel.app',
-      image: '/images/soulsync-preview.png', // Replace with your image path
-    },
-    {
-      title: '✅ Task Tracker Web App',
-      description: 'A full-stack Blazor web app to manage daily tasks using ASP.NET Core + EF + SQL.',
-      tags: ['Blazor', 'C#', 'EF Core', 'SQL Server'],
-      github: 'https://github.com/yourusername/task-tracker',
-      live: 'https://tasktracker-demo.netlify.app',
-      image: '/images/tasktracker-preview.png',
-    },
-  ];
-
   return (
-    <section
+    <motion.section
       id="projects"
-      className="snap-start min-h-screen bg-gradient-to-br from-purple-800 via-indigo-800 to-blue-900 py-20 px-6 text-white relative"
+      className="px-6 py-10 bg-transparent text-white"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
     >
-      {/* 🔹 Frosted Glass Background Overlay */}
-      <div className="absolute inset-0 backdrop-blur-md bg-black/30 z-10" />
-
-      <motion.div
-        className="relative z-20 max-w-6xl mx-auto"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-4xl font-bold mb-12 text-center">💼 Projects</h2>
-
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
+      <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-md">
+          <p className="text-xs text-purple-300 mb-1">Blazor App</p>
+          <h3 className="text-lg font-bold">Task Tracker</h3>
+          <p className="text-sm text-white/80 mb-4">Track and update tasks using C# & SQL.</p>
+          <div>
+            <p className="text-xs mb-1">C#</p>
+            <div className="w-full bg-white/20 rounded-full h-2 mb-3">
+              <div className="bg-purple-400 h-2 rounded-full w-[80%]" />
+            </div>
+            <p className="text-xs mb-1">SQL</p>
+            <div className="w-full bg-white/20 rounded-full h-2">
+              <div className="bg-purple-400 h-2 rounded-full w-[75%]" />
+            </div>
+          </div>
         </div>
-      </motion.div>
-    </section>
+
+        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-md">
+          <p className="text-xs text-purple-300 mb-1">Full Stack</p>
+          <h3 className="text-lg font-bold">SoulSync</h3>
+          <p className="text-sm text-white/80 mb-4">AI-powered emotional support app with Blazor : .NET API</p>
+          <div className="flex gap-4">
+            <a href="#" className="px-4 py-2 bg-purple-600/30 rounded-lg text-sm hover:bg-purple-500/40">GitHub</a>
+            <a href="#" className="px-4 py-2 bg-purple-600/30 rounded-lg text-sm hover:bg-purple-500/40">Live</a>
+          </div>
+        </div>
+      </div>
+    </motion.section>
   );
 }

@@ -25,3 +25,10 @@ section {
   background-color: #06b6d4; /* Tailwind cyan-500 */
   border-radius: 8px;
 }
+html, body {
+  scroll-behavior: smooth;
+}
+
+button {
+  transition: all 0.3s ease-in-out;
+}

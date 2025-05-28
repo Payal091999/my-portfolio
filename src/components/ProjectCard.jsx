@@ -7,18 +7,24 @@ export default function ProjectCard({ title, description, tags, image, github, l
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-xl shadow-lg overflow-hidden dark:bg-slate-800 dark:text-white"
+      className="bg-white rounded-xl shadow-lg overflow-hidden dark:bg-slate-800 dark:text-white transition hover:scale-[1.02] hover:shadow-2xl duration-300"
     >
-      <img
-        src={image}
-        alt={title}
-        className="h-52 w-full object-cover"
-      />
+      {/* 🔹 Image with fallback */}
+      {image && (
+        <img
+          src={image}
+          alt={title}
+          className="h-52 w-full object-cover"
+          loading="lazy"
+        />
+      )}
 
+      {/* 🔹 Content */}
       <div className="p-5 space-y-3">
         <h3 className="text-xl font-semibold">{title}</h3>
         <p className="text-sm text-gray-600 dark:text-gray-300">{description}</p>
 
+        {/* 🔹 Tags */}
         <div className="flex flex-wrap gap-2 mt-2">
           {Array.isArray(tags) && tags.length > 0 ? (
             tags.map((tag, index) => (
@@ -34,15 +40,28 @@ export default function ProjectCard({ title, description, tags, image, github, l
           )}
         </div>
 
+        {/* 🔹 Action Links */}
         <div className="flex justify-end gap-4 mt-4">
           {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer" title="View Code">
-              <FaGithub className="text-xl hover:text-cyan-500" />
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="View Code"
+              className="text-xl text-gray-700 dark:text-white hover:text-cyan-500 transition"
+            >
+              <FaGithub />
             </a>
           )}
           {live && (
-            <a href={live} target="_blank" rel="noopener noreferrer" title="Live Demo">
-              <FaExternalLinkAlt className="text-xl hover:text-cyan-500" />
+            <a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Live Demo"
+              className="text-xl text-gray-700 dark:text-white hover:text-cyan-500 transition"
+            >
+              <FaExternalLinkAlt />
             </a>
           )}
         </div>
@@ -51,7 +70,7 @@ export default function ProjectCard({ title, description, tags, image, github, l
   );
 }
 
-// ✅ Prevents crash if props are missing
+// 🔹 Default Props for safety
 ProjectCard.defaultProps = {
   tags: [],
   title: 'Untitled Project',

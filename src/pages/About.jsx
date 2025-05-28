@@ -1,52 +1,52 @@
 // src/pages/About.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+
+import GlassCard from '../components/GlassCard';
+import SkillChart from '../components/SkillChart';
 import Timeline from '../components/Timeline';
-import Skills from '../components/Skills';
 
 export default function About() {
   return (
     <section
       id="about"
-      className="snap-start relative min-h-screen text-center overflow-hidden bg-gradient-to-br from-indigo-700 via-purple-800 to-blue-900"
+      className="relative min-h-screen flex flex-col justify-center px-6 py-10 overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-700 dark:from-[#0f172a] dark:to-[#0f172a] text-white font-sans scroll-smooth"
     >
-      {/* 🔹 Frosted Glass Overlay */}
-      <div className="absolute inset-0 backdrop-blur-md bg-black/30 z-10" />
+      {/* 🔹 Background Overlay */}
+      <div className="absolute inset-0 -z-10">
+        <div className="w-full h-full backdrop-blur-md bg-black/30" />
+        <div className="w-full h-full opacity-20 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:20px_20px]" />
+      </div>
 
-      {/* 🔹 About Content */}
+      {/* 🔹 About Me + SkillChart */}
       <motion.div
-        className="relative z-20 px-6 pt-28 pb-16 max-w-3xl mx-auto text-white"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        className="relative z-10"
       >
-        <div className="backdrop-blur-md bg-white/10 border border-white/20 shadow-xl rounded-xl p-6">
-          <h2 className="text-4xl font-bold mb-4">👋 About Me</h2>
-          <p className="text-lg leading-relaxed">
-            I’m <strong>Payal Bera</strong>, a web developer focused on building modern apps using Blazor, C#, React, and SQL.
-            <br /><br />
-            Passionate about designing user-friendly interfaces and solving problems with clean code. My goal is to build apps that are both functional and elegant.
-          </p>
-        </div>
+        <GlassCard className="grid md:grid-cols-2 gap-6 items-center mb-12">
+          <div>
+            <h2 className="text-3xl font-bold mb-4">👋 About Me</h2>
+            <p className="text-sm text-white/80 leading-relaxed">
+              I’m <strong>Payal Bera</strong>, a web developer focused on building modern full-stack apps using Blazor, C#, React, and SQL Server.
+              <br /><br />
+              Passionate about designing user-friendly UIs and solving business problems with clean code. I love blending logic with creativity.
+            </p>
+          </div>
+          <div className="flex gap-4 justify-center">
+            <SkillChart value={80} label="C#" />
+            <SkillChart value={75} label="SQL" />
+          </div>
+        </GlassCard>
       </motion.div>
 
-      {/* 🔹 Skills and Timeline Sections */}
+      {/* 🔹 Timeline Section */}
       <motion.div
-        className="relative z-20 bg-white dark:bg-slate-900"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <Skills />
-      </motion.div>
-
-      <motion.div
-        className="relative z-20 bg-white dark:bg-slate-900"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="relative z-10"
       >
         <Timeline />
       </motion.div>
