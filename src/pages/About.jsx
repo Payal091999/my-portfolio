@@ -1,7 +1,5 @@
-// src/pages/About.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-
 import GlassCard from '../components/GlassCard';
 import SkillChart from '../components/SkillChart';
 import Timeline from '../components/Timeline';

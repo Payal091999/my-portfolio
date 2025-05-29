@@ -9,6 +9,13 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 
+// Import your new components
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Certifications from './components/Certifications';
+import Testimonials from './components/Testimonials';
+import AISection from './components/AISection';
+
 function AnimatedRoutes() {
   const location = useLocation();
   return (
@@ -20,6 +27,12 @@ function AnimatedRoutes() {
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />
           <Route path="resume" element={<Resume />} />
+          {/* New Routes */}
+          <Route path="skills" element={<Skills />} />
+          <Route path="experience" element={<Experience />} />
+          <Route path="certifications" element={<Certifications />} />
+          <Route path="testimonials" element={<Testimonials />} />
+          <Route path="ai" element={<AISection />} />
         </Route>
       </Routes>
     </AnimatePresence>

@@ -1,3 +1,4 @@
+// src/components/Skills.jsx
 import React from 'react';
 import { SiDotnet } from 'react-icons/si';
 import { motion } from 'framer-motion';
@@ -25,24 +26,30 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16 px-4 text-center bg-white dark:bg-slate-900">
-      <h2 className="text-3xl font-bold mb-12 text-gray-800 dark:text-white">🚀 Tech Stack</h2>
+    <section
+      id="skills"
+      className="py-20 px-4 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white"
+    >
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-12 tracking-wide">💻 Tech Stack & Skills</h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex flex-col items-center justify-center bg-white/10 dark:bg-white/5 rounded-xl shadow-lg p-6 backdrop-blur-md border border-white/20 dark:border-slate-700 transition"
-          >
-            <div className="mb-3">{skill.icon}</div>
-            <SkillChart value={skill.level} label={`${skill.level}%`} />
-            <span className="text-sm font-medium text-gray-800 dark:text-gray-100 mt-2">{skill.label}</span>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg p-6 flex flex-col items-center"
+            >
+              <div className="mb-4">{skill.icon}</div>
+              <SkillChart value={skill.level} label={`${skill.level}%`} />
+              <p className="mt-3 font-semibold text-sm">{skill.label}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
