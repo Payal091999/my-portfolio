@@ -16,7 +16,7 @@ export default function AISection() {
     setUserInput('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/chat', {
+      const response = await axios.post('/api/chat', {
         message: userInput,
       });
 
