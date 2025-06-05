@@ -11,10 +11,10 @@ export default function AdminPanel() {
   }, []);
 
   const sendInvite = () => {
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+    emailjs.send('service_3tpf0tm', 'template_umtjd2l', {
       to_email: email,
-      submit_url: 'http://localhost:5173/submit', // or your deployed URL
-    }, 'YOUR_USER_ID')
+      submit_url: window.location.origin + '/submit', // Use current origin for production
+    }, 'tcgM5l3eaPs5HHFt2')
     .then(() => alert("Invite sent"))
     .catch((err) => alert("Failed: " + err.text));
   };
