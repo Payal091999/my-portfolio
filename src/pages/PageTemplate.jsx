@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 
 export default function PageTemplate({ children, title }) {
-  const location = useLocation();
 
   return (
     <motion.div
