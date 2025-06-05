@@ -1,7 +1,20 @@
 import React from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { motion } from 'framer-motion';
+
+// Import pages
+import Home from '../pages/GlassHome';
+import About from '../pages/About';
+import Projects from '../pages/Projects';
+import Contact from '../pages/Contact';
+import Resume from '../pages/Resume';
+import Skills from '../pages/Skills';
+import Experience from '../pages/Experience';
+import Certifications from '../pages/Certifications';
+import Testimonials from '../pages/Testimonials';
+import AISection from '../pages/AISection';
+import Courses from '../pages/Courses';
 
 export default function Layout() {
   return (
@@ -15,6 +28,7 @@ export default function Layout() {
           <NavLink to="/experience" className={({ isActive }) => isActive ? "text-cyan-300" : "hover:text-cyan-300"}>Experience</NavLink>
           <NavLink to="/certifications" className={({ isActive }) => isActive ? "text-cyan-300" : "hover:text-cyan-300"}>Certifications</NavLink>
           <NavLink to="/testimonials" className={({ isActive }) => isActive ? "text-cyan-300" : "hover:text-cyan-300"}>Testimonials</NavLink>
+          <NavLink to="/courses" className={({ isActive }) => isActive ? "text-cyan-300" : "hover:text-cyan-300"}>Courses</NavLink>
           <NavLink to="/ai" className={({ isActive }) => isActive ? "text-cyan-300" : "hover:text-cyan-300"}>Meet My AI</NavLink>
         </nav>
         <ThemeToggle />
@@ -28,7 +42,19 @@ export default function Layout() {
         transition={{ duration: 0.5 }}
         className="p-6"
       >
-        <Outlet />
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="resume" element={<Resume />} />
+        <Route path="skills" element={<Skills />} />
+        <Route path="experience" element={<Experience />} />
+        <Route path="certifications" element={<Certifications />} />
+        <Route path="testimonials" element={<Testimonials />} />
+        <Route path="ai" element={<AISection />} />
+        <Route path="courses" element={<Courses />} />
+      </Routes>
       </motion.main>
     </div>
   );
