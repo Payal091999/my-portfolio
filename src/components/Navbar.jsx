@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import {
@@ -16,6 +16,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Close menu when route changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
     { name: 'Home', path: '/', icon: <FaHome /> },
     { name: 'Skills', path: '/skills', icon: <FaCogs /> },
@@ -30,9 +35,9 @@ export default function Navbar() {
     <>
       <header className="bg-white dark:bg-slate-900 shadow-md fixed top-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-blue-600 dark:text-cyan-400">
+          <Link to="/" className="text-2xl font-bold text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-500 transition-colors">
             Payal Bera
-          </div>
+          </Link>
 
           <div className="flex items-center space-x-4">
             <nav className="hidden md:flex space-x-6">
@@ -66,7 +71,7 @@ export default function Navbar() {
             <ThemeToggle />
 
             <div className="md:hidden">
-              <button onClick={() => setMenuOpen(!menuOpen)} className="text-blue-600 dark:text-white text-2xl">
+              <button onClick={() => setMenuOpen(!menuOpen)} className="text-blue-600 dark:text-white text-2xl hover:text-blue-700 dark:hover:text-cyan-500 transition-colors">
                 {menuOpen ? <FiX /> : <FiMenu />}
               </button>
             </div>

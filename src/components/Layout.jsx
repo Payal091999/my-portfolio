@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext';
 
 // Import pages
 import Home from '../pages/GlassHome';
@@ -19,10 +20,20 @@ import SubmitTestimonial from '../components/SubmitTestimonial';
 import AdminPanel from '../pages/Admin';
 
 export default function Layout() {
+  const { theme } = useTheme();
+
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-pink-700 dark:from-slate-900 dark:to-slate-800 text-white font-sans scroll-smooth">
+    <div className={`flex flex-col min-h-screen ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-br from-slate-900 to-slate-800 text-white' 
+        : 'bg-gradient-to-br from-blue-900 via-purple-900 to-pink-700 text-white'
+    } font-sans scroll-smooth`}>
       {/* 🔹 Navbar */}
-      <header className="flex justify-between items-center px-6 py-4 backdrop-blur-md bg-white/10 dark:bg-white/5 rounded-b-2xl shadow-md border-b border-white/20">
+      <header className={`flex justify-between items-center px-6 py-4 backdrop-blur-md ${
+        theme === 'dark' 
+          ? 'bg-white/5' 
+          : 'bg-white/10'
+      } rounded-b-2xl shadow-md border-b border-white/20`}>
         <h1 className="text-xl font-bold text-cyan-300">Payal Bera | Software Developer</h1>
         <nav className="flex gap-6 text-sm">
           <NavLink to="/" className={({ isActive }) => isActive ? "text-cyan-300" : "hover:text-cyan-300"}>Home</NavLink>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
@@ -13,21 +14,23 @@ export default function Footer() {
 
         {/* 🔹 Center: Navigation Links */}
         <div className="flex space-x-6 text-sm">
-          <a href="#home" className="hover:text-cyan-400 transition">Home</a>
-          <a href="#about" className="hover:text-cyan-400 transition">About</a>
-          <a href="#projects" className="hover:text-cyan-400 transition">Projects</a>
-          <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
+          <Link to="/" className="hover:text-cyan-400 transition">Home</Link>
+          <Link to="/skills" className="hover:text-cyan-400 transition">Skills</Link>
+          <Link to="/experience" className="hover:text-cyan-400 transition">Experience</Link>
+          <Link to="/certifications" className="hover:text-cyan-400 transition">Certifications</Link>
+          <Link to="/testimonials" className="hover:text-cyan-400 transition">Testimonials</Link>
+          <Link to="/ai" className="hover:text-cyan-400 transition">AI Assistant</Link>
         </div>
 
         {/* 🔹 Right: Social Icons */}
         <div className="flex space-x-5 text-lg">
-          <a href="https://linkedin.com/in/abcxyz" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition">
+          <a href="https://linkedin.com/in/payalbera" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition">
             <FaLinkedin />
           </a>
           <a href="https://github.com/Payal091999" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition">
             <FaGithub />
           </a>
-          <a href="mailto:abc@gmail.com" className="hover:text-cyan-400 transition">
+          <a href="mailto:payalbera@example.com" className="hover:text-cyan-400 transition">
             <FaEnvelope />
           </a>
         </div>
